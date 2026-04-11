@@ -43,12 +43,12 @@ src/
 │
 ├── components/
 │ └── headers/
-│ ├── HeaderSimple/
-│ │ ├── HeaderSimple.jsx
+│ ├── SlidingHeader/
+│ │ ├── SlidingHeader.jsx
 │ │ └── index.js
 │ │
-│ ├── HeaderGlass/
-│ │ ├── HeaderGlass.jsx
+│ ├── InteractiveHeader/
+│ │ ├── InteractiveHeader.jsx
 │ │ └── index.js
 │ │
 │ └── index.js
@@ -110,23 +110,23 @@ export { default as HeaderGlass } from "./HeaderGlass";
 
 #### 🧩 Implemented Headers
 
-🔹 **HeaderSimple**
-+ Minimal layout
+🔹 **SlidingHeader**
++ Top-down swipe animation
 + Logo + navigation
-+ Baseline reference component
++ Interactive hover effects on each item
 
-🔹 **HeaderGlass**
-+ Glassmorphism effect (```backdrop-blur```)
-+ Sticky positioning
-+ Subtle borders and transparency
+🔹 **InteractiveHeader**
++ It adapts to scrolling by changing its background and height
++ Animated dropdown menus
 + Hover interactions
++ Subtle borders and transparency
 
 #### 🧪 Interactive Showcase
 
 The ```HeaderShowcase``` page acts as a visual testing environment:
 
 ```js
-const [active, setActive] = useState("simple");
+const [active, setActive] = useState("sliding");
 ```
 
 This pattern allows:
