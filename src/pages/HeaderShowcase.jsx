@@ -1,6 +1,6 @@
 import { useState } from "react";
 import ShowcaseLayout from "../Layouts/ShowcaseLayout";
-import { SlidingHeader, InteractiveHeader } from "../components/headers";
+import { SlidingHeader, InteractiveHeader, AnimatedHeader } from "../components/headers";
 
 
 const HeaderShowcase = () => {
@@ -15,19 +15,28 @@ const HeaderShowcase = () => {
                     onClick={() => setActive("sliding")}
                     className="px-4 py-2 bg-black text-white rounded"
                 >
-                    Sliding Header
+                    Sliding
                 </button>
                 
                 <button
                     onClick={() => setActive("interactive")}
                     className="px-4 py-2 bg-gray-300 rounded"
                 >
-                    Interactive Header
+                    Interactive
+                </button>
+
+                <button
+                    onClick={() => setActive("animated")}
+                    className="px-4 py-2 bg-gray-300 rounded"
+                >
+                    Animated
                 </button>
             </div>
 
             {active === "sliding" && <SlidingHeader />}
             {active === "interactive" && <InteractiveHeader />}
+            {active === "animated" && <AnimatedHeader />}
+
 
             <div
                 className="p-10 text-center text-gray-500"
