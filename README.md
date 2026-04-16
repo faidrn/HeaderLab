@@ -21,7 +21,7 @@ In modern web applications, headers are not just navigation elements — they de
 
 ## 🧪 Live Demo
 
-> Coming soon (Vercel / Netlify deployment)
+[Click here](https://headerlab.netlify.app/)
 
 ---
 
