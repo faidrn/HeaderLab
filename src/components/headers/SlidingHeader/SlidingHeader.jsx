@@ -19,7 +19,7 @@ const SlidingHeader = ({
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className="w-full bg-linear-to-r from-purple-600 to-pink-600 text-white shadow-lg"
+      className="w-full bg-linear-to-r from-purple-600 to-pink-600 text-white shadow-lg dark:from-purple-900 dark:to-pink-900 transition-colors"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">

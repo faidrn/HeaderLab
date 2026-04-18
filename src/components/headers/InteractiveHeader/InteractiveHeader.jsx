@@ -8,17 +8,21 @@ const InteractiveHeader = ({
     title = "TechHub",
     categories = [],
     icons = [],
-    button = []
+    button = [],
+    darkMode = false,
 }) => {
     const [activeDropdown, setActiveDropdown] = useState(null);
     const { scrollY } = useScroll();
 
     const MotionLink = motion(Link);
+
     
     const backgroundColor = useTransform(
         scrollY,
         [0, 100],
-        ["rgba(15, 23, 42, 0.8)", "rgba(15, 23, 42, 1)"]
+        darkMode
+            ? ["rgba(0, 0, 0, 0.6)", "rgba(0, 0, 0, 0.9)"]
+            : ["rgba(15, 23, 42, 0.8)", "rgba(15, 23, 42, 1)"]
     );
 
     const headerHeight = useTransform(
@@ -93,7 +97,7 @@ const InteractiveHeader = ({
                                         pointerEvents: activeDropdown === category.name ? "auto" : "none" 
                                     }}
                                     transition={{ duration: 0.2 }}
-                                    className="absolute top-full left-0 mt-2 w-48 bg-slate-800 rounded-lg shadow-xl border border-white/10 overflow-hidden"
+                                    className="absolute top-full left-0 mt-2 w-48 bg-slate-600 rounded-lg shadow-xl border border-white/10 overflow-hidden dark:bg-slate-800 transition-colors"
                                 >
                                     {category.items.map((item, i) => (
                                         <MotionLink
@@ -141,7 +145,7 @@ const InteractiveHeader = ({
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                             onClick={button.onClick}
-                            className="hidden sm:block ml-2 px-4 py-2 bg-linear-to-r from-cyan-500 to-blue-600 text-white rounded-lg hover:from-cyan-600 hover:to-blue-700 transition-all"
+                            className="hidden sm:block ml-2 px-4 py-2 bg-linear-to-r from-cyan-500 to-blue-600 text-white rounded-lg hover:from-cyan-600 hover:to-blue-700 dark:from-cyan-700 dark:to-blue-800 dark:hover:from-cyan-900 dark:hover:to-blue-900 transition-all"
                         >
                             {button.text}
                         </motion.button>

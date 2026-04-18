@@ -38,7 +38,7 @@ const AnimatedHeader = ({
             initial={{ y: 0 }}
             animate={{ y: isVisible ? 0 : -100 }}
             transition={{ duration: 0.3 }}
-            className="w-full bg-slate-900 text-white shadow-2xl relative overflow-hidden"
+            className="w-full bg-slate-900 text-white shadow-2xl relative overflow-hidden dark:bg-slate-700 transition-colors"
         >
             {/* Animated Background Particles */}
             <div
