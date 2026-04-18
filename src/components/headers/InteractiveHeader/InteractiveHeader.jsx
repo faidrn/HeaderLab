@@ -1,6 +1,7 @@
 import {useState } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
 import { ChevronDown } from "lucide-react";
+import { Link } from "react-router-dom";
 
 
 const InteractiveHeader = ({
@@ -11,6 +12,8 @@ const InteractiveHeader = ({
 }) => {
     const [activeDropdown, setActiveDropdown] = useState(null);
     const { scrollY } = useScroll();
+
+    const MotionLink = motion(Link);
     
     const backgroundColor = useTransform(
         scrollY,
@@ -93,9 +96,9 @@ const InteractiveHeader = ({
                                     className="absolute top-full left-0 mt-2 w-48 bg-slate-800 rounded-lg shadow-xl border border-white/10 overflow-hidden"
                                 >
                                     {category.items.map((item, i) => (
-                                        <motion.a
+                                        <MotionLink
                                             key={item}
-                                            href="#"
+                                            to="#"
                                             initial={{ x: -10, opacity: 0 }}
                                             animate={{ 
                                                 x: activeDropdown === category.name ? 0 : -10,
@@ -105,7 +108,7 @@ const InteractiveHeader = ({
                                             className="block px-4 py-3 text-white/80 hover:bg-white/10 hover:text-white transition-colors"
                                         >
                                             {item}
-                                        </motion.a>
+                                        </MotionLink>
                                     ))}
                                 </motion.div>
                             </div>

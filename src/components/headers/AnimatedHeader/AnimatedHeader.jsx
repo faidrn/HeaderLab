@@ -1,6 +1,7 @@
 import { motion, useAnimationControls } from "motion/react";
 import { Zap } from "lucide-react";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 
 const AnimatedHeader = ({ 
@@ -12,6 +13,8 @@ const AnimatedHeader = ({
     const controls = useAnimationControls();
     const [isVisible, setIsVisible] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
+
+    const MotionLink = motion(Link);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -121,9 +124,9 @@ const AnimatedHeader = ({
                         {navItems.map((item, index) => {
                             const Icon = item.icon;
                             return (
-                                <motion.a
+                                <MotionLink
                                     key={item.label}
-                                    href={item.href}
+                                    to={item.href}
                                     initial={{ opacity: 0, x: 50 }}
                                     animate={{ opacity: 1, x: 0 }}
                                     transition={{
@@ -161,7 +164,7 @@ const AnimatedHeader = ({
                                     <span className="relative z-10 text-sm hidden sm:inline">
                                         {item.label}
                                     </span>
-                                </motion.a>
+                                </MotionLink>
                             );
                         })}
                     </nav>

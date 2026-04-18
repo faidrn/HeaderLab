@@ -11,6 +11,8 @@ const SlidingHeader = ({
 }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+    const MotionLink = motion(Link);
+
 
   return (
     <motion.header
@@ -36,9 +38,9 @@ const SlidingHeader = ({
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
             {menuItems.map((item, index) => (
-              <motion.a
+              <MotionLink
                 key={index}
-                href={item.href}
+                to={item.href}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1, duration: 0.5 }}
@@ -46,7 +48,7 @@ const SlidingHeader = ({
                 className="hover:text-amber-300 transition-colors"
               >
                 {item.label}
-              </motion.a>
+              </MotionLink>
             ))}
           </nav>
 
@@ -87,16 +89,16 @@ const SlidingHeader = ({
         >
           <div className="py-4 space-y-3">
             {menuItems.map((item, index) => (
-              <motion.a
+              <MotionLink
                 key={index}
-                href={item.href}
+                to={item.href}
                 initial={{ x: -20, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ delay: index * 0.05 }}
                 className="block py-2 px-4 hover:bg-white/20 rounded-lg"
               >
                 {item.label}
-              </motion.a>
+              </MotionLink>
             ))}
           </div>
 
