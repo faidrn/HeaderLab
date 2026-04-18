@@ -52,15 +52,15 @@ const SlidingHeader = ({
 
           {/* Icons */}
           <div className="hidden md:flex items-center gap-4">
-            {icons.map((item, index) => (
+            {icons.map(({icon: Icon, onClick}, index) => (
               <motion.button
                 key={index}
                 whileHover={{ scale: 1.2, rotate: 5 }}
                 whileTap={{ scale: 0.9 }}
-                onClick={item.onClick}
+                onClick={onClick}
                 className="p-2 hover:bg-white/20 rounded-full transition-colors"
               >
-                {item.icon}
+                <Icon size={20} />
               </motion.button>
             ))}
           </div>
@@ -102,15 +102,15 @@ const SlidingHeader = ({
 
           {/* Icons for mobile */}
           <div className="md:hidden flex items-center gap-4 mt-4">
-            {icons.map((item, index) => (
+            {icons.map(({icon: Icon, onClick}, index) => (
                 <motion.button
                 key={index}
                 whileHover={{ scale: 1.2, rotate: 5 }}
                 whileTap={{ scale: 0.9 }}
-                onClick={item.onClick}
+                onClick={onClick}
                 className="p-2 hover:bg-white/20 rounded-full transition-colors"
                 >
-                  {item.icon}
+                  <Icon size={20} />
                 </motion.button>
             ))}
           </div>

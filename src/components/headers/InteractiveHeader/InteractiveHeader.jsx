@@ -116,7 +116,7 @@ const InteractiveHeader = ({
                     <div 
                         className="flex items-center gap-2 sm:gap-3"
                     >
-                        {icons.map((item, index) => (
+                        {icons.map(({icon: Icon, onClick}, index) => (
                             <motion.button
                                 key={index}
                                 initial={{ opacity: 0, scale: 0 }}
@@ -124,10 +124,10 @@ const InteractiveHeader = ({
                                 transition={{ delay: 0.3 + index * 0.1, type: "spring" }}
                                 whileHover={{ scale: 1.1, y: -2 }}
                                 whileTap={{ scale: 0.95 }}
-                                onClick={item.onClick}
+                                onClick={onClick}
                                 className="p-2 sm:p-2.5 bg-white/10 hover:bg-white/20 rounded-lg text-white transition-colors"
                             >
-                                {item.icon}
+                                <Icon size={20} />
                             </motion.button>
                         ))}
                             
