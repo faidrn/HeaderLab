@@ -1,9 +1,14 @@
 import { motion, useAnimationControls } from "motion/react";
-import { Home, Briefcase, Book, MessageCircle, Heart, Zap } from "lucide-react";
+import { Zap } from "lucide-react";
 import { useEffect, useState } from "react";
 
 
-const AnimatedHeader = () => {
+const AnimatedHeader = ({ 
+    title = "ZapHub",
+    subtitle = "Power Your Connections",
+    navItems = [],
+    button = [],
+}) => {
     const controls = useAnimationControls();
     const [isVisible, setIsVisible] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
@@ -24,14 +29,6 @@ const AnimatedHeader = () => {
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, [lastScrollY]);
-
-    const navItems = [
-        { icon: Home, label: "Home", color: "from-red-500 to-orange-500" },
-        { icon: Briefcase, label: "Jobs", color: "from-blue-500 to-cyan-500" },
-        { icon: Book, label: "Blog", color: "from-green-500 to-emerald-500" },
-        { icon: MessageCircle, label: "Chat", color: "from-purple-500 to-pink-500" },
-        { icon: Heart, label: "Favorites", color: "from-rose-500 to-red-500" },
-    ];
 
     return (
         <motion.header
@@ -106,13 +103,13 @@ const AnimatedHeader = () => {
                         <div
                             className="flex flex-col"
                         >
-                            <span className="text-2xl">ZapHub</span>
+                            <span className="text-2xl">{title}</span>
                             <motion.span
                                 animate={{ opacity: [0.5, 1, 0.5] }}
                                 transition={{ duration: 2, repeat: Infinity }}
                                 className="text-xs text-yellow-400"
                             >
-                                Power Your Connections
+                                {subtitle}
                             </motion.span>
                         </div>
                     </motion.div>
@@ -126,7 +123,7 @@ const AnimatedHeader = () => {
                             return (
                                 <motion.a
                                     key={item.label}
-                                    href="#"
+                                    href={item.href}
                                     initial={{ opacity: 0, x: 50 }}
                                     animate={{ opacity: 1, x: 0 }}
                                     transition={{
@@ -176,6 +173,7 @@ const AnimatedHeader = () => {
                         transition={{ delay: 0.5, type: "spring" }}
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
+                        onClick={button.onClick}
                         className="relative px-6 py-2.5 bg-linear-to-r from-yellow-400 to-orange-500 text-slate-900 rounded-full overflow-hidden group"
                     >
                         <motion.div
@@ -183,7 +181,9 @@ const AnimatedHeader = () => {
                             animate={{ x: ["-100%", "100%"] }}
                             transition={{ duration: 1.5, repeat: Infinity }}
                         />
-                            <span className="relative z-10">Get Started</span>
+                            <span className="relative z-10">
+                                {button.text}
+                            </span>
                     </motion.button>
                 </div>
             </div>

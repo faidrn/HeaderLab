@@ -1,9 +1,14 @@
 import {useState } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
-import { Bell, Mail, Settings, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 
 
-const InteractiveHeader = () => {
+const InteractiveHeader = ({
+    title = "TechHub",
+    categories = [],
+    icons = [],
+    button = []
+}) => {
     const [activeDropdown, setActiveDropdown] = useState(null);
     const { scrollY } = useScroll();
     
@@ -19,11 +24,6 @@ const InteractiveHeader = () => {
         [80, 64]
     );
 
-    const categories = [
-        { name: "Technology", items: ["Laptops", "Smartphones", "Tablets"] },
-        { name: "Fashion", items: ["Clothing", "Accessories", "Footwear"] },
-        { name: "Home", items: ["Decoration", "Kitchen", "Garden"] },
-    ];
 
     return (
         <motion.header
@@ -54,7 +54,7 @@ const InteractiveHeader = () => {
                         >
                             <span className="text-white text-xl">◆</span>
                         </motion.div>
-                        <span className="text-white text-xl hidden sm:block">TechHub</span>
+                        <span className="text-white text-xl hidden sm:block">{title}</span>
                     </motion.div>
 
                     {/* Desktop Categories */}
@@ -116,7 +116,7 @@ const InteractiveHeader = () => {
                     <div 
                         className="flex items-center gap-2 sm:gap-3"
                     >
-                        {[Bell, Mail, Settings].map((Icon, index) => (
+                        {icons.map((item, index) => (
                             <motion.button
                                 key={index}
                                 initial={{ opacity: 0, scale: 0 }}
@@ -124,9 +124,10 @@ const InteractiveHeader = () => {
                                 transition={{ delay: 0.3 + index * 0.1, type: "spring" }}
                                 whileHover={{ scale: 1.1, y: -2 }}
                                 whileTap={{ scale: 0.95 }}
+                                onClick={item.onClick}
                                 className="p-2 sm:p-2.5 bg-white/10 hover:bg-white/20 rounded-lg text-white transition-colors"
                             >
-                                <Icon size={18} />
+                                {item.icon}
                             </motion.button>
                         ))}
                             
@@ -136,9 +137,10 @@ const InteractiveHeader = () => {
                             transition={{ delay: 0.6, type: "spring" }}
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
+                            onClick={button.onClick}
                             className="hidden sm:block ml-2 px-4 py-2 bg-linear-to-r from-cyan-500 to-blue-600 text-white rounded-lg hover:from-cyan-600 hover:to-blue-700 transition-all"
                         >
-                            Sign In
+                            {button.text}
                         </motion.button>
                     </div>
                 </div>

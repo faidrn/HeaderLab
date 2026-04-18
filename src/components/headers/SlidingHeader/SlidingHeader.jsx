@@ -1,12 +1,16 @@
 import { motion } from "motion/react";
-import { Menu, X, Search, ShoppingCart, User } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 
-const SlidingHeader = () => {
+const SlidingHeader = ({
+  title = "BrandLogo",
+  menuItems = [],
+  icons = [],
+}) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    const menuItems = ["Home", "Products", "Services", "About", "Contact"];
 
   return (
     <motion.header
@@ -26,36 +30,37 @@ const SlidingHeader = () => {
             <div className="w-8 h-8 md:w-10 md:h-10 bg-white rounded-full flex items-center justify-center">
               <span className="text-purple-600 text-lg md:text-xl">✦</span>
             </div>
-            <span className="text-xl md:text-2xl">BrandLogo</span>
+            <span className="text-xl md:text-2xl">{title}</span>
           </motion.div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
             {menuItems.map((item, index) => (
               <motion.a
-                key={item}
-                href="#"
+                key={index}
+                href={item.href}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1, duration: 0.5 }}
                 whileHover={{ scale: 1.1, color: "#fbbf24" }}
                 className="hover:text-amber-300 transition-colors"
               >
-                {item}
+                {item.label}
               </motion.a>
             ))}
           </nav>
 
           {/* Icons */}
           <div className="hidden md:flex items-center gap-4">
-            {[Search, ShoppingCart, User].map((Icon, index) => (
+            {icons.map((item, index) => (
               <motion.button
                 key={index}
                 whileHover={{ scale: 1.2, rotate: 5 }}
                 whileTap={{ scale: 0.9 }}
+                onClick={item.onClick}
                 className="p-2 hover:bg-white/20 rounded-full transition-colors"
               >
-                <Icon size={20} />
+                {item.icon}
               </motion.button>
             ))}
           </div>
@@ -83,28 +88,29 @@ const SlidingHeader = () => {
           <div className="py-4 space-y-3">
             {menuItems.map((item, index) => (
               <motion.a
-                key={item}
-                href="#"
+                key={index}
+                href={item.href}
                 initial={{ x: -20, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ delay: index * 0.05 }}
                 className="block py-2 px-4 hover:bg-white/20 rounded-lg"
               >
-                {item}
+                {item.label}
               </motion.a>
             ))}
           </div>
 
           {/* Icons for mobile */}
           <div className="md:hidden flex items-center gap-4 mt-4">
-            {[Search, ShoppingCart, User].map((Icon, index) => (
+            {icons.map((item, index) => (
                 <motion.button
                 key={index}
                 whileHover={{ scale: 1.2, rotate: 5 }}
                 whileTap={{ scale: 0.9 }}
+                onClick={item.onClick}
                 className="p-2 hover:bg-white/20 rounded-full transition-colors"
                 >
-                <Icon size={20} />
+                  {item.icon}
                 </motion.button>
             ))}
           </div>
