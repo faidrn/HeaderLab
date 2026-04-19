@@ -26,29 +26,19 @@ const HeaderShowcase = () => {
     return (
         <ShowcaseLayout>
             <div
-                className="p-4 border-b flex gap-4 bg-gray-100 dark:bg-gray-900 transition-colors"
+                className="p-4 border-b flex justify-between items-center gap-4 bg-gray-100 dark:bg-gray-900 transition-colors"
             >
-                <button
-                    onClick={() => setActive("sliding")}
-                    className="px-4 py-2 bg-black text-white rounded"
+                <select
+                    value={active}
+                    onChange={(e) => setActive(e.target.value)}
+                    className="px-4 py-2 rounded border border-gray-400 bg-white text-black dark:bg-gray-800 dark:text-white"
                 >
-                    Sliding
-                </button>
-                
-                <button
-                    onClick={() => setActive("interactive")}
-                    className="px-4 py-2 bg-gray-300 rounded"
-                >
-                    Interactive
-                </button>
+                    <option value="sliding">Sliding</option>
+                    <option value="interactive">Interactive</option>
+                    <option value="animated">Animated</option>
+                </select>
 
-                <button
-                    onClick={() => setActive("animated")}
-                    className="px-4 py-2 bg-gray-300 rounded"
-                >
-                    Animated
-                </button>
-
+                {/* Dark Mode Toggle Button */}
                 <button
                     onClick={() => setDarkMode(!darkMode)}
                     className="p-2 rounded-lg bg-gray-200 text-black dark:bg-gray-800 dark:text-white transition-colors"
