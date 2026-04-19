@@ -1,5 +1,5 @@
 import { color } from "motion";
-import { button, text } from "motion/react-client";
+import { button, text, title } from "motion/react-client";
 
 export const headerColors = {
   slate: {
@@ -73,6 +73,25 @@ export const headerColors = {
       light: "to-yellow-500",
       dark: "to-yellow-800",
     },
-    text: "text-orange-400",
+    text: "text-white",
+    subtitle: "text-yellow-400",
+    background: {
+      light: "bg-slate-900",
+      dark: "dark:bg-slate-700",
+    },
+    logoColor:{
+      from: "from-yellow-400",
+      to: "to-orange-600",
+    },
+    backgroundMenus:{
+      color: "bg-white/5",
+      hover: "hover:bg-white/10",
+    },
+    button: {
+      from: "from-yellow-400",
+      to: "to-orange-500",
+      text: "text-slate-900",
+    },
   },
+
 };

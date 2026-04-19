@@ -2,6 +2,8 @@ import { motion, useAnimationControls } from "motion/react";
 import { Zap } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { headerColors } from "../../../styles/headerTokens";
+//import { useTheme } from "../../../theme/ThemeProvider";
 
 
 const AnimatedHeader = ({ 
@@ -9,13 +11,22 @@ const AnimatedHeader = ({
     subtitle = "Power Your Connections",
     navItems = [],
     button = [],
+    color = "orange",
 }) => {
     const controls = useAnimationControls();
     const [isVisible, setIsVisible] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
+    {/*const { theme } = useTheme();*/}
 
     const MotionLink = motion(Link);
 
+    const c = headerColors[color];
+
+    {/*const gradient =
+      theme === "dark"
+        ? `${c.from.dark} ${c.to.dark}`
+        : `${c.from.light} ${c.to.light}`;*/}
+    
     useEffect(() => {
         const handleScroll = () => {
             const currentScrollY = window.scrollY;
@@ -38,7 +49,7 @@ const AnimatedHeader = ({
             initial={{ y: 0 }}
             animate={{ y: isVisible ? 0 : -100 }}
             transition={{ duration: 0.3 }}
-            className="w-full bg-slate-900 text-white shadow-2xl relative overflow-hidden dark:bg-slate-700 transition-colors"
+            className={`w-full ${c.background.light} ${c.text} shadow-2xl relative overflow-hidden ${c.background.dark} transition-colors`}
         >
             {/* Animated Background Particles */}
             <div
@@ -99,9 +110,9 @@ const AnimatedHeader = ({
                                 duration: 2,
                                 repeat: Infinity,
                             }}
-                            className="relative w-12 h-12 bg-linear-to-br from-yellow-400 to-orange-600 rounded-full flex items-center justify-center"
+                            className={`relative w-12 h-12 bg-linear-to-br ${c.logoColor.from} ${c.logoColor.to} rounded-full flex items-center justify-center`}
                         >
-                            <Zap className="text-white" size={24} />
+                            <Zap className={`${c.text}`} size={24} />
                         </motion.div>
                         <div
                             className="flex flex-col"
@@ -110,7 +121,7 @@ const AnimatedHeader = ({
                             <motion.span
                                 animate={{ opacity: [0.5, 1, 0.5] }}
                                 transition={{ duration: 2, repeat: Infinity }}
-                                className="text-xs text-yellow-400"
+                                className={`text-xs ${c.subtitle}`}
                             >
                                 {subtitle}
                             </motion.span>
@@ -140,7 +151,7 @@ const AnimatedHeader = ({
                                         transition: { duration: 0.3 },
                                     }}
                                     whileTap={{ scale: 0.95 }}
-                                    className="group relative flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2.5 bg-white/5 hover:bg-white/10 rounded-full transition-all overflow-hidden"
+                                    className={`group relative flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2.5 ${c.backgroundMenus.color} ${c.backgroundMenus.hover} rounded-full transition-all overflow-hidden`}
                                 >
                                     {/* Animated Gradient Background */}
                                     <motion.div
@@ -177,7 +188,7 @@ const AnimatedHeader = ({
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         onClick={button.onClick}
-                        className="relative px-6 py-2.5 bg-linear-to-r from-yellow-400 to-orange-500 text-slate-900 rounded-full overflow-hidden group"
+                        className={`relative px-6 py-2.5 bg-linear-to-r ${c.button.from} ${c.button.to} ${c.button.text} rounded-full overflow-hidden group`}
                     >
                         <motion.div
                             className="absolute inset-0 bg-linear-to-r from-transparent via-white to-transparent opacity-0 group-hover:opacity-30"

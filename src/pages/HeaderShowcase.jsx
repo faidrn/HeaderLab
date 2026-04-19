@@ -49,6 +49,7 @@ const HeaderShowcase = () => {
                     title="BrandLogo"
                     menuItems={menuSlidingHeader}
                     icons={iconsSlidingHeader}
+                    color="purple"
                 />
             )}
             {active === "interactive" && (
@@ -57,6 +58,7 @@ const HeaderShowcase = () => {
                     categories={categories}
                     icons={iconsInteractiveHeader}
                     button={buttonInteractiveHeader}
+                    color="slate"
                 />
             )}
             {active === "animated" && (
@@ -65,6 +67,7 @@ const HeaderShowcase = () => {
                     subtitle="Power Your Connections"
                     navItems={navItemsAnimatedHeader}
                     button={buttonAnimatedHeader}
+                    color="orange"
                 />
             )}
 
