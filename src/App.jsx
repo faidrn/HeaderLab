@@ -1,11 +1,14 @@
 import AppRouter from './routes/AppRouter'
+import { ThemeProvider } from './theme/ThemeProvider'
 import './App.css'
 
 function App() {
   
 
   return (
-    <AppRouter />
+    <ThemeProvider>
+      <AppRouter />
+    </ThemeProvider>
   )
 }
 

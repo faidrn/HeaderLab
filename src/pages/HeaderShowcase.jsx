@@ -4,24 +4,13 @@ import { SlidingHeader, InteractiveHeader, AnimatedHeader } from "../components/
 import { menuSlidingHeader, iconsSlidingHeader } from "../components/headers/SlidingHeader/slidingHeader.data";
 import { categories, iconsInteractiveHeader, buttonInteractiveHeader } from "../components/headers/InteractiveHeader/interactiveHeader.data";
 import { navItemsAnimatedHeader, buttonAnimatedHeader } from "../components/headers/AnimatedHeader/animatedHeader.data";
+import { useTheme } from "../theme/ThemeProvider";
 import { Sun, Moon } from "lucide-react";
 import { motion } from "motion/react";
 
-
 const HeaderShowcase = () => {
     const [active, setActive] = useState("sliding");
-
-    const [darkMode, setDarkMode] = useState(false);
-
-    useEffect(() => {
-        const root = window.document.documentElement;
-
-        if (darkMode) {
-            root.classList.add("dark");
-        } else {
-            root.classList.remove("dark");
-        }
-    }, [darkMode]);
+    const { theme, toggleTheme } = useTheme();
 
     return (
         <ShowcaseLayout>
@@ -40,17 +29,17 @@ const HeaderShowcase = () => {
 
                 {/* Dark Mode Toggle Button */}
                 <button
-                    onClick={() => setDarkMode(!darkMode)}
+                    onClick={toggleTheme}
                     className="p-2 rounded-lg bg-gray-200 text-black dark:bg-gray-800 dark:text-white transition-colors"
                 >
                     <motion.div
-                        key={darkMode ? "sun" : "moon"}
+                        key={theme}
                         initial={{ rotate: -90, opacity: 0 }}
                         animate={{ rotate: 0, opacity: 1 }}
                         exit={{ rotate: 90, opacity: 0 }}
                         transition={{ duration: 0.3 }}
                     >
-                        {darkMode ? <Sun size={20} /> : <Moon size={20} />}
+                         {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
                     </motion.div>
                 </button>
             </div>
@@ -68,7 +57,6 @@ const HeaderShowcase = () => {
                     categories={categories}
                     icons={iconsInteractiveHeader}
                     button={buttonInteractiveHeader}
-                    darkMode={darkMode}
                 />
             )}
             {active === "animated" && (

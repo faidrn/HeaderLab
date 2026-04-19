@@ -2,16 +2,26 @@ import { motion } from "motion/react";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { headerColors } from "../../../styles/headerTokens";
+import { useTheme } from "../../../theme/ThemeProvider";
 
 
 const SlidingHeader = ({
   title = "BrandLogo",
   menuItems = [],
   icons = [],
+  color = "purple",
 }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const { theme } = useTheme();
 
     const MotionLink = motion(Link);
+    const c = headerColors[color];
+
+    const gradient =
+      theme === "dark"
+        ? `${c.from.dark} ${c.to.dark}`
+        : `${c.from.light} ${c.to.light}`;
 
 
   return (
@@ -19,7 +29,7 @@ const SlidingHeader = ({
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className="w-full bg-linear-to-r from-purple-600 to-pink-600 text-white shadow-lg dark:from-purple-900 dark:to-pink-900 transition-colors"
+      className={`w-full bg-linear-to-r ${gradient} text-white shadow-lg transition-colors`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
@@ -30,7 +40,7 @@ const SlidingHeader = ({
             className="flex items-center gap-2 cursor-pointer"
           >
             <div className="w-8 h-8 md:w-10 md:h-10 bg-white rounded-full flex items-center justify-center">
-              <span className="text-purple-600 text-lg md:text-xl">✦</span>
+              <span className={`${c.text} text-lg md:text-xl`}>✦</span>
             </div>
             <span className="text-xl md:text-2xl">{title}</span>
           </motion.div>
@@ -44,8 +54,8 @@ const SlidingHeader = ({
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1, duration: 0.5 }}
-                whileHover={{ scale: 1.1, color: "#fbbf24" }}
-                className="hover:text-amber-300 transition-colors"
+                whileHover={{ scale: 1.1, color: c.linkHover }}
+                className={`${c.hoverText} transition-colors`}
               >
                 {item.label}
               </MotionLink>
