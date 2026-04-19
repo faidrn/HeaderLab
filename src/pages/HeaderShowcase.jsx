@@ -4,6 +4,8 @@ import { SlidingHeader, InteractiveHeader, AnimatedHeader } from "../components/
 import { menuSlidingHeader, iconsSlidingHeader } from "../components/headers/SlidingHeader/slidingHeader.data";
 import { categories, iconsInteractiveHeader, buttonInteractiveHeader } from "../components/headers/InteractiveHeader/interactiveHeader.data";
 import { navItemsAnimatedHeader, buttonAnimatedHeader } from "../components/headers/AnimatedHeader/animatedHeader.data";
+import { Sun, Moon } from "lucide-react";
+import { motion } from "motion/react";
 
 
 const HeaderShowcase = () => {
@@ -27,13 +29,6 @@ const HeaderShowcase = () => {
                 className="p-4 border-b flex gap-4 bg-gray-100 dark:bg-gray-900 transition-colors"
             >
                 <button
-                    onClick={() => setDarkMode(!darkMode)}
-                    className="px-4 py-2 m-4 bg-black text-white dark:bg-white dark:text-black rounded"
-                >
-                    Toggle Dark Mode
-                </button>
-
-                <button
                     onClick={() => setActive("sliding")}
                     className="px-4 py-2 bg-black text-white rounded"
                 >
@@ -52,6 +47,21 @@ const HeaderShowcase = () => {
                     className="px-4 py-2 bg-gray-300 rounded"
                 >
                     Animated
+                </button>
+
+                <button
+                    onClick={() => setDarkMode(!darkMode)}
+                    className="p-2 rounded-lg bg-gray-200 text-black dark:bg-gray-800 dark:text-white transition-colors"
+                >
+                    <motion.div
+                        key={darkMode ? "sun" : "moon"}
+                        initial={{ rotate: -90, opacity: 0 }}
+                        animate={{ rotate: 0, opacity: 1 }}
+                        exit={{ rotate: 90, opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                    >
+                        {darkMode ? <Sun size={20} /> : <Moon size={20} />}
+                    </motion.div>
                 </button>
             </div>
 
