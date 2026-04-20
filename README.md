@@ -68,9 +68,6 @@ src/
 
 ---
 
-
----
-
 ## 🧩 Implemented Headers
 
 ### 🔹 SlidingHeader
