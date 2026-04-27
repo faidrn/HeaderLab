@@ -1,15 +1,16 @@
 import { useState, useEffect } from "react";
 import ShowcaseLayout from "../Layouts/ShowcaseLayout";
-import { SlidingHeader, InteractiveHeader, AnimatedHeader } from "../components/headers";
+import { SlidingHeader, InteractiveHeader, AnimatedHeader, SimpleHeader } from "../components/headers";
 import { menuSlidingHeader, iconsSlidingHeader } from "../components/headers/SlidingHeader/slidingHeader.data";
 import { categories, iconsInteractiveHeader, buttonInteractiveHeader } from "../components/headers/InteractiveHeader/interactiveHeader.data";
 import { navItemsAnimatedHeader, buttonAnimatedHeader } from "../components/headers/AnimatedHeader/animatedHeader.data";
+import { menusSimpleHeader, buttonSimpleHeader } from "../components/headers/SimpleHeader/simpleHeader.data";
 import { useTheme } from "../theme/ThemeProvider";
 import { Sun, Moon } from "lucide-react";
 import { motion } from "motion/react";
 
 const HeaderShowcase = () => {
-    const [active, setActive] = useState("sliding");
+    const [active, setActive] = useState("simple");
     const { theme, toggleTheme } = useTheme();
 
     return (
@@ -22,6 +23,7 @@ const HeaderShowcase = () => {
                     onChange={(e) => setActive(e.target.value)}
                     className="px-4 py-2 rounded border border-gray-400 bg-white text-black dark:bg-gray-800 dark:text-white"
                 >
+                    <option value="simple">Simple</option>
                     <option value="sliding">Sliding</option>
                     <option value="interactive">Interactive</option>
                     <option value="animated">Animated</option>
@@ -70,7 +72,14 @@ const HeaderShowcase = () => {
                     color="orange"
                 />
             )}
-
+            {active === "simple" && (
+                <SimpleHeader 
+                    title="My Logo"
+                    menuItems={menusSimpleHeader}
+                    button={buttonSimpleHeader}
+                    color="white"
+                />
+            )}
 
             <div
                 className="p-10 text-center text-gray-500  dark:bg-gray-900 dark:text-white transition-colors"

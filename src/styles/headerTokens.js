@@ -94,4 +94,32 @@ export const headerColors = {
     },
   },
 
+  white: {
+    background: "bg-white",
+    darkBackground: "dark:bg-gray-800",
+    borderColor: "border-gray-200",
+    darkBorderColor: "dark:border-gray-100",
+    iconColor: "text-blue-600",
+    darkIconColor: "dark:text-blue-500",
+    titleColor: "text-gray-900",
+    darkTitleColor: "dark:text-white",
+    text: "text-gray-600",
+    darkText: "dark:text-gray-300",
+    hoverText: "hover:text-gray-900",
+    darkHoverText: "dark:hover:text-white",
+    buttonColor: "bg-blue-600",
+    darkButtonColor: "dark:bg-blue-500",
+    buttonHover: "hover:bg-blue-700",
+    darkButtonHover: "dark:hover:bg-blue-600",
+    textButton: "text-white",
+    menuButton: {
+      background: "bg-gray-100",
+      darkBackground: "dark:bg-gray-700",
+      text: "text-gray-800",
+      darkText: "dark:text-gray-200",
+      hover: "hover:bg-gray-200",
+      darkHover: "dark:hover:bg-gray-600",
+    },
+  },
+
 };
