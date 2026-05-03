@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Menu, X, Sparkles } from "lucide-react";
 import { headerColors } from "../../../styles/headerTokens";
 import { useTheme } from "../../../theme/ThemeProvider";
-import { div } from "motion/react-client";
+
 
 const SimpleHeader = ({
   title = "My Logo",
