@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import ShowcaseLayout from "../Layouts/ShowcaseLayout";
-import { SlidingHeader, InteractiveHeader, AnimatedHeader, SimpleHeader } from "../components/headers";
+import { SlidingHeader, InteractiveHeader, AnimatedHeader, SimpleHeader, Sidebar } from "../components/headers";
 import { menuSlidingHeader, iconsSlidingHeader } from "../components/headers/SlidingHeader/slidingHeader.data";
 import { categories, iconsInteractiveHeader, buttonInteractiveHeader } from "../components/headers/InteractiveHeader/interactiveHeader.data";
 import { navItemsAnimatedHeader, buttonAnimatedHeader } from "../components/headers/AnimatedHeader/animatedHeader.data";
 import { menusSimpleHeader, buttonSimpleHeader } from "../components/headers/SimpleHeader/simpleHeader.data";
+import { menuItems, iconsDarkMode, buttonUser } from "../components/headers/Sidebar/sidebar.data";
 import { useTheme } from "../theme/ThemeProvider";
 import { Sun, Moon } from "lucide-react";
 import { motion } from "motion/react";
@@ -27,6 +28,7 @@ const HeaderShowcase = () => {
                     <option value="sliding">Sliding</option>
                     <option value="interactive">Interactive</option>
                     <option value="animated">Animated</option>
+                    <option value="sidebar">Sidebar</option>
                 </select>
 
                 {/* Dark Mode Toggle Button */}
@@ -77,6 +79,17 @@ const HeaderShowcase = () => {
                     title="My Logo"
                     menuItems={menusSimpleHeader}
                     button={buttonSimpleHeader}
+                    color="white"
+                />
+            )}
+
+            {active === "sidebar" && (
+                <Sidebar 
+                    title="My App"
+                    subtitle="Welcome back!"
+                    menuItems={menuItems}
+                    icons={iconsDarkMode}
+                    button={buttonUser}
                     color="white"
                 />
             )}

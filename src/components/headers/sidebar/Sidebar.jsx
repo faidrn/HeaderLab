@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { headerColors } from "../../../styles/headerTokens";
 import { useTheme } from "../../../theme/ThemeProvider";
@@ -9,6 +9,7 @@ const Sidebar = ({
     title = "My App",
     subtitle = "Welcome back!",
     menuItems = [],
+    icons = [],
     button = [],
     color = "white",
 }) => {
@@ -79,7 +80,7 @@ const Sidebar = ({
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         onClick={() => setIsOpen(false)}
-                        className="fixed inset-0 bg-black/50 z-40 md:hidden"
+                        className="fixed inset-0 bg-black/50 z-30 md:hidden"
                     />
                 )}
             </AnimatePresence>
@@ -110,7 +111,7 @@ const Sidebar = ({
                 initial={false}
                 animate={isOpen ? "open" : "closed"}
                 variants={sidebarVariants}
-                className={`fixed top-0 left-0 h-screen w-64 ${
+                className={`fixed top-0 left-0 h-screen w-64 z-40 ${
                     darkMode 
                         ? 'bg-gray-900 border-gray-800' 
                         : 'bg-white border-gray-200'
@@ -190,9 +191,42 @@ const Sidebar = ({
                         </motion.ul>
                     </nav>
 
-                    {/* Footer with Dark Mode Toggle */}
+                    {/* Footer/ User Profile */}
                     <motion.div
+                        className="p-4 border-t border-current/10"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 0.2 }}
                     >
+                        <motion.div
+                            whileHover={{ scale: 1.02 }}
+                            className={`mt-3 flex items-center gap-3 p-3 rounded-lg cursor-pointer transition-colors ${
+                                darkMode
+                                ? 'hover:bg-gray-800'
+                                : 'hover:bg-gray-100'
+                            }`}
+                        >
+                            <div className={`w-10 h-10 rounded-full flex items-center justify-center ${
+                                    darkMode ? 'bg-purple-600' : 'bg-purple-500'
+                                } text-white font-bold`}
+                            >
+                                U
+                            </div>
+                            <div className="flex-1 min-w-0">
+                                <p className={`text-sm font-medium truncate ${
+                                        darkMode ? 'text-white' : 'text-gray-900'
+                                    }`}
+                                >
+                                    User
+                                </p>
+                                <p className={`text-xs truncate ${
+                                        darkMode ? 'text-gray-400' : 'text-gray-600'
+                                    }`}
+                                >
+                                    user@example.com
+                                </p>
+                            </div>
+                        </motion.div>
                     </motion.div>
                 </div>
             </motion.aside>

@@ -1,4 +1,4 @@
-import { Bell, Mail, Settings, Home, User, Moon, Sun } from "lucide-react";
+import { Bell, Mail, Settings, Home, User } from "lucide-react";
 
 export const menuItems = [
     { icon: Home, label: 'Home', href: '#home' },
@@ -21,10 +21,6 @@ export const iconsDarkMode = [
     { icon: Sun, onClick: () => alert("Dark Mode Dark") },
 ];
 
-export const buttonDarkMode = {
-    text: "Dark Mode",
-    onClick: () => alert("Dark Mode"),
-};
 
 export const buttonUser = {
     text: "User",

@@ -3,7 +3,6 @@ import { Zap } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { headerColors } from "../../../styles/headerTokens";
-//import { useTheme } from "../../../theme/ThemeProvider";
 
 
 const AnimatedHeader = ({ 
@@ -16,16 +15,11 @@ const AnimatedHeader = ({
     const controls = useAnimationControls();
     const [isVisible, setIsVisible] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
-    {/*const { theme } = useTheme();*/}
 
     const MotionLink = motion(Link);
 
     const c = headerColors[color];
 
-    {/*const gradient =
-      theme === "dark"
-        ? `${c.from.dark} ${c.to.dark}`
-        : `${c.from.light} ${c.to.light}`;*/}
     
     useEffect(() => {
         const handleScroll = () => {

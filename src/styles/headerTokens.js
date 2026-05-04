@@ -1,4 +1,4 @@
-import { color } from "motion";
+import { color, hover } from "motion";
 import { button, text, title } from "motion/react-client";
 
 export const headerColors = {
@@ -120,6 +120,130 @@ export const headerColors = {
       hover: "hover:bg-gray-200",
       darkHover: "dark:hover:bg-gray-600",
     },
+    default: {
+      background: {
+        light: "bg-white",
+        dark: "dark:bg-gray-800",
+      },
+      borderColor: {
+        light: "border-gray-200",
+        dark: "dark:border-gray-100",
+      },
+      iconColor: {
+        light: "text-blue-600",
+        dark: "dark:text-blue-500",
+      },
+      titleColor: {
+        light: "text-gray-900",
+        dark: "dark:text-white",
+      },
+      text: {
+        light: "text-gray-600",
+        dark: "dark:text-gray-300",
+      },
+      hoverText: {
+        light: "hover:text-gray-900",
+        dark: "dark:hover:text-white",
+      },
+      buttonColor: {
+        light: "bg-blue-600",
+        dark: "dark:bg-blue-500",
+      },
+      buttonHover: {
+        light: "hover:bg-blue-700",
+        dark: "dark:hover:bg-blue-600",
+      },
+      textButton: "text-white",
+      menuButton: {
+        background: {
+          light: "bg-gray-100",
+          dark: "dark:bg-gray-700",
+        },
+        text: {
+          light: "text-gray-800",
+          dark: "dark:text-gray-200",
+        },
+        hover: {
+          light: "hover:bg-gray-200",
+          dark: "dark:hover:bg-gray-600",
+        },
+      },
+    }, 
+    dark: {
+      toggleButton: {
+        background: {
+          light: "bg-white",
+          dark: "dark:bg-gray-800",
+        },
+        text: {
+          light: "text-white",
+          dark: "dark:text-gray-900",
+        }, 
+        hoverBackground: {
+          light: "hover:bg-gray-100",
+          dark: "dark:hover:bg-gray-700",
+        }
+      },
+      sidebar: {
+        background: {
+          light: "bg-white",
+          dark: "dark:bg-gray-900",
+        },
+        border: {
+          light: "border-gray-200",
+          dark: "dark:border-gray-800",
+        }
+      },
+      header:{
+        title: {
+          light: "text-gray-900",
+          dark: "dark:text-white",
+        },
+        text: {
+          light: "text-gray-600",
+          dark: "dark:text-gray-400", 
+        },
+      },
+      menuItems: {
+        link: {
+          light: "text-gray-700",
+          dark: "dark:text-gray-300",
+        },
+        hover: {
+          light: "hover:bg-gray-100 hover:text-gray-900",
+          dark: "dark:hover:bg-gray-800 dark:hover:text-white",
+        },
+        noItems: {
+          background: {
+            light: "bg-gray-100",
+            dark: "dark:bg-gray-800",
+          },
+          text: {
+            light: "text-gray-900",
+            dark: "dark:text-white",
+          },
+        },
+      },
+      userProfile: {
+        hover: {
+          light: "hover:bg-gray-100",
+          dark: "dark:hover:bg-gray-800",
+        }, 
+        background: {
+          light: "bg-purple-500",
+          dark: "dark:bg-purple-600", 
+        },
+        text: {
+          light: "text-gray-900",
+          dark: "dark:text-white",
+        },
+        email: {
+          light: "text-gray-600",
+          dark: "dark:text-gray-400",
+        },
+      },
+    },
+    
   },
 
 };
