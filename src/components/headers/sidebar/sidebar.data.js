@@ -8,17 +8,12 @@ export const menuItems = [
     { icon: Settings, label: 'Settings', href: '#settings' },
   ];
 
-/*export const iconsSidebar = [
+export const iconsSidebar = [
     { icon: Home, onClick: () => alert("Home") },
     { icon: User, onClick: () => alert("User") },
     { icon: Mail, onClick: () => alert("Messages") },
     { icon: Bell, onClick: () => alert("Notifications") },
     { icon: Settings, onClick: () => alert("Settings") },
-];*/
-
-export const iconsDarkMode = [
-    { icon: Moon, onClick: () => alert("Dark Mode Light") },
-    { icon: Sun, onClick: () => alert("Dark Mode Dark") },
 ];
 
 
