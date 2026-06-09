@@ -246,4 +246,47 @@ export const headerColors = {
     
   },
 
+  glassPurple: {
+    border: {
+      light: "border-white/20",
+      dark: "dark:border-white/10",
+    },
+    background: {
+      light: "bg-white/30",
+      dark: "bg-black/30",
+    },
+    viaGradient: {
+      light: "via-white/60",
+      dark: "dark:via-white/30",
+    },
+    logoColor:{
+      from: "from-violet-500",
+      to: "to-cyan-500",
+    },
+    textLogo: "text-white",
+    gradientTitle:{
+      light:{
+        from: "from-violet-500",
+        to: "to-cyan-500",
+      },
+      dark:{
+        from: "dark:from-violet-400",
+        to: "dark:to-cyan-300",
+      }
+    },
+    gradientDesktopNav: {
+      from: "from-violet-500",
+      to: "to-cyan-500",
+    },
+    backgroundMenus:{
+      color: "bg-white/5",
+      hover: "hover:bg-white/10",
+    },
+    button: {
+      from: "from-yellow-400",
+      to: "to-orange-500",
+      text: "text-slate-900",
+    },
+  },
+
 };

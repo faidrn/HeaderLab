@@ -5,7 +5,7 @@ import { menuSlidingHeader, iconsSlidingHeader } from "../components/headers/Sli
 import { categories, iconsInteractiveHeader, buttonInteractiveHeader } from "../components/headers/InteractiveHeader/interactiveHeader.data";
 import { navItemsAnimatedHeader, buttonAnimatedHeader } from "../components/headers/AnimatedHeader/animatedHeader.data";
 import { menusSimpleHeader, buttonSimpleHeader } from "../components/headers/SimpleHeader/simpleHeader.data";
-import { navLinks } from "../components/headers/GlassHeader/glassHeader.data";
+import { navLinks, buttonGlassHeader } from "../components/headers/GlassHeader/glassHeader.data";
 //import { menuItems, iconsSidebar, buttonUser } from "../components/headers/Sidebar/sidebar.data";
 import { useTheme } from "../theme/ThemeProvider";
 import { Sun, Moon } from "lucide-react";
@@ -29,7 +29,6 @@ const HeaderShowcase = () => {
                     <option value="sliding">Sliding</option>
                     <option value="interactive">Interactive</option>
                     <option value="animated">Animated</option>
-                    <option value="sidebar">Sidebar</option>
                     <option value="glass">Glass</option>
                 </select>
 
@@ -88,9 +87,9 @@ const HeaderShowcase = () => {
             {active === "glass" && (
                 <GlassHeader 
                     title="NovaMake"
-                    menuItems={navLinks}
-                    button={buttonSimpleHeader}
-                    color="white"
+                    navItems={navLinks}
+                    button={buttonGlassHeader}
+                    color="glassPurple"
                 />
             )}
 

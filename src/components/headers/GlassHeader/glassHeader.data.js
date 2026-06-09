@@ -1,7 +1,5 @@
-import { Zap } from "lucide-react";
 
-
-const navLinks = [
+export const navLinks = [
   { label: "Home", href: "#" },
   { label: "Features", href: "#" },
   { label: "Prices", href: "#" },
@@ -9,7 +7,7 @@ const navLinks = [
   { label: "Contact", href: "#" },
 ];
 
-export const buttonAnimatedHeader = {
+export const buttonGlassHeader = {
     text: "Get Started",
     onClick: () => alert("Get Started"),
 };
