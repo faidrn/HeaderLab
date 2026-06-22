@@ -108,7 +108,7 @@ const GlassHeader = ({
                             whileHover={{ scale: 1.04 }}
                             whileTap={{ scale: 0.96 }}
                             onClick={button.onClick}
-                            className="hidden sm:flex items-center gap-1.5 px-4 py-1.5 rounded-xl text-sm text-white bg-linear-to-r from-violet-600 to-cyan-500 shadow-lg shadow-violet-500/25 hover:shadow-violet-500/40 transition-shadow duration-300"
+                            className={`hidden sm:flex items-center gap-1.5 px-4 py-1.5 rounded-xl text-sm ${c.button.text} bg-linear-to-r ${c.button.from} ${c.button.to} shadow-lg ${c.button.shadow} ${c.button.hoverShadow} transition-shadow duration-300`}
                         >
                             {button.text}
                         </motion.a>
@@ -118,7 +118,7 @@ const GlassHeader = ({
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.9 }}
                             onClick={() => setMenuOpen(!menuOpen)}
-                            className="md:hidden w-9 h-9 flex items-center justify-center rounded-xl border border-white/30 dark:border-white/10 bg-white/20 dark:bg-white/5 text-foreground/70 hover:text-foreground transition-colors duration-200"
+                            className={`md:hidden w-9 h-9 flex items-center justify-center rounded-xl border ${c.mobileButton.border.light} ${c.mobileButton.border.dark} ${c.mobileButton.background.light} ${c.mobileButton.background.dark} text-foreground/70 hover:text-foreground transition-colors duration-200`}
                             aria-label="Toggle menu"
                         >
                             <AnimatePresence mode="wait">
@@ -157,7 +157,7 @@ const GlassHeader = ({
                             animate={{ height: "auto", opacity: 1 }}
                             exit={{ height: 0, opacity: 0 }}
                             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-                            className="md:hidden overflow-hidden border-t border-white/20 dark:border-white/10"
+                            className={`md:hidden overflow-hidden border-t ${c.border.light} ${c.border.dark}`}
                         >
                             <div className="px-5 py-4 flex flex-col gap-1">
                                 {navItems.map((link, i) => (
@@ -168,7 +168,7 @@ const GlassHeader = ({
                                         animate={{ x: 0, opacity: 1 }}
                                         transition={{ delay: i * 0.06, duration: 0.3 }}
                                         onClick={() => setMenuOpen(false)}
-                                        className="px-3 py-2.5 rounded-xl text-sm text-foreground/70 dark:text-foreground/60 hover:text-foreground dark:hover:text-foreground hover:bg-white/20 dark:hover:bg-white/5 transition-all duration-200"
+                                        className={`px-3 py-2.5 rounded-xl text-sm text-foreground/70 dark:text-foreground/60 hover:text-foreground dark:hover:text-foreground ${c.mobileMenu.hover.light} ${c.mobileMenu.hover.dark} transition-all duration-200`}
                                     >
                                         {link.label}
                                     </motion.a>
@@ -179,7 +179,7 @@ const GlassHeader = ({
                                     animate={{ x: 0, opacity: 1 }}
                                     transition={{ delay: navItems.length * 0.06, duration: 0.3 }}
                                     onClick={button.onClick}
-                                    className="mt-2 flex items-center justify-center py-2.5 rounded-xl text-sm text-white bg-linear-to-r from-violet-600 to-cyan-500"
+                                    className={`mt-2 flex items-center justify-center py-2.5 rounded-xl text-sm ${c.button.text} bg-linear-to-r ${c.button.from} ${c.button.to}`}
                                 >
                                     {button.text}
                                 </motion.a>
@@ -189,7 +189,7 @@ const GlassHeader = ({
                 </AnimatePresence>
 
                 {/* Bottom shimmer */}
-                <div className="absolute inset-x-0 bottom-0 h-px bg-linear-to-r from-transparent via-white/40 dark:via-white/10 to-transparent" />
+                <div className={`absolute inset-x-0 bottom-0 h-px bg-linear-to-r ${c.bottomShimmer.from} ${c.bottomShimmer.via.light} ${c.bottomShimmer.via.dark} ${c.bottomShimmer.to}`} />
             </div>
         </motion.header>
     );

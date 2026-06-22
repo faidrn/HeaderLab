@@ -283,9 +283,35 @@ export const headerColors = {
       hover: "hover:bg-white/10",
     },
     button: {
-      from: "from-yellow-400",
-      to: "to-orange-500",
-      text: "text-slate-900",
+      from: "from-violet-600",
+      to: "to-cyan-500",
+      text: "text-white",
+      shadow: "shadow-violet-500/25",
+      hoverShadow: "hover:shadow-violet-500/40",
+    },
+    mobileButton:{
+      border: {
+        light: "border-white/30",
+        dark: "dark:border-white/10",
+      },
+      background: {
+        light: "bg-white/20",
+        dark: "dark:bg-white/5", 
+      },
+    },
+    mobileMenu: {
+      hover: {
+        light: "hover:bg-white/20",
+        dark: "dark:hover:bg-white/5",
+      },
+    },
+    bottomShimmer:{
+      from: "from-transparent",
+      via: {
+        light: "via-white/40",
+        dark: "dark:via-white/10",
+      },
+      to: "to-transparent",
     },
   },
 
